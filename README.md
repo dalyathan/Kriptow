@@ -1,16 +1,4 @@
-# drrrible_nuha_maulana_ahsan_crypto_app
+# Kriptow - CrytpCurrency App
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A flutter implementation of [Kriptow - CrytpCurrency App](https://dribbble.com/shots/17339800-Kriptow-CryptoCurrency-App) by [Nuha Maulana Ahsan] (https://dribbble.com/nuhamlnaa)
+![Design](https://cdn.dribbble.com/users/2390402/screenshots/17339800/media/5fcc141299b0494ef87bcfa6a9f95b2d.png
