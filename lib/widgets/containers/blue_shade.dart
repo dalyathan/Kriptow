@@ -1,10 +1,11 @@
-import '../../painters/blue_shade.dart';
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/painters/blue_shade.dart';
 import 'package:flutter/material.dart';
 
-class BlueShadeBackground extends StatelessWidget {
+class BlueShadeContainer extends StatelessWidget {
   final double width;
   final double aspectRatio;
-  const BlueShadeBackground(this.width, this.aspectRatio, {Key? key})
+  const BlueShadeContainer(
+      {Key? key, required this.width, required this.aspectRatio})
       : super(key: key);
 
   @override
