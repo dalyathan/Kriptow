@@ -1,3 +1,4 @@
+import '/widgets/containers/profile/personal_info_view.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -5,6 +6,18 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            PersonalInfoView(
+              aspectRatio: 1.7,
+              width: size.width,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
