@@ -1,3 +1,4 @@
+import '/widgets/containers/blue_shade.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -5,6 +6,13 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [BlueShadeBackground(size.width, 1.5)],
+        ),
+      ),
+    );
   }
 }
