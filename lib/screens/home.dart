@@ -1,4 +1,6 @@
-import '/widgets/containers/portfolio.dart';
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/portfolio/graph_row.dart';
+
+import '../widgets/containers/portfolio/portfolio_header.dart';
 
 import '/widgets/containers/profile/personal_info_view.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class Home extends StatelessWidget {
     double borderRadiusRatio = 0.1;
     double overlapRatio = 0.05;
     double headerAspectRatio = 1.7;
-    double horizontalPaddingRatio = 0.05;
+    double horizontalPaddingRatio = 0.025;
     double verticalPaddingRatio = 0.05;
     return Scaffold(
       body: SafeArea(
@@ -28,8 +30,15 @@ class Home extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                         vertical: size.width * verticalPaddingRatio,
                         horizontal: size.height * horizontalPaddingRatio),
-                    child: PortfolioContainer(
-                      height: size.height * 0.035,
+                    child: PortfolioHeader(
+                      height: size.height * 0.045,
+                    )),
+                Padding(
+                    padding: EdgeInsets.only(
+                        left: size.width * verticalPaddingRatio,
+                        top: size.height * horizontalPaddingRatio),
+                    child: GraphRow(
+                      height: size.height * 0.3,
                     ))
               ],
             )

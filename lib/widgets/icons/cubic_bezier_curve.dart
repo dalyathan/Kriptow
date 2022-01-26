@@ -12,7 +12,7 @@ class CubicBezierCurveIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     double aspectRatio = 1.33;
     return CustomPaint(
-      painter: CubicBezierCurvePainter(color),
+      painter: CubicBezierCurveIconPainter(color),
       size: Size(width, width / aspectRatio),
     );
   }

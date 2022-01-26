@@ -31,10 +31,10 @@ class TodaysProfit extends StatelessWidget {
           Row(
             children: [
               Container(
-                //color: Colors.red,
-                width: width * 0.8,
+                //color: Colors.yellow,
+                height: height * 0.325,
                 child: FittedBox(
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.fitHeight,
                   child: Center(
                     child: Text('\$1,205',
                         style: GoogleFonts.spartan(color: Colors.white)),
@@ -44,9 +44,16 @@ class TodaysProfit extends StatelessWidget {
               SizedBox(
                 width: width * 0.05,
               ),
-              CubicBezierCurveIcon(
-                  width: width * 0.15,
-                  color: const Color.fromRGBO(175, 217, 219, 1))
+              Container(
+                height: height * 0.325,
+                //color: Colors.green,
+                child: Align(
+                  alignment: Alignment(0, -height * 0.0075),
+                  child: CubicBezierCurveIcon(
+                      width: width * 0.15,
+                      color: const Color.fromRGBO(175, 217, 219, 1)),
+                ),
+              )
             ],
           )
         ],

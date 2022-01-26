@@ -2,9 +2,9 @@ import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/portfolio.d
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PortfolioContainer extends StatelessWidget {
+class PortfolioHeader extends StatelessWidget {
   final double height;
-  const PortfolioContainer({Key? key, required this.height}) : super(key: key);
+  const PortfolioHeader({Key? key, required this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +12,15 @@ class PortfolioContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          height: height,
+          height: height * 0.8,
           child: FittedBox(
             fit: BoxFit.fitHeight,
             child: Text('Portfolio',
-                style: GoogleFonts.spartan(color: Colors.black)),
+                style: GoogleFonts.spartan(
+                    color: Colors.black, fontWeight: FontWeight.bold)),
           ),
         ),
-        PortfolioIcon(size: height)
+        PortfolioIcon(width: height)
       ],
     );
   }

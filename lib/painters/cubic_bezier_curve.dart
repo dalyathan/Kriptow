@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CubicBezierCurvePainter extends CustomPainter {
+class CubicBezierCurveIconPainter extends CustomPainter {
   final Color brushColor;
 
-  CubicBezierCurvePainter(this.brushColor);
+  CubicBezierCurveIconPainter(this.brushColor);
   @override
   void paint(Canvas canvas, Size size) {
     double controlPointsHorizontalOffsetRatio = 0.5;
@@ -22,6 +22,7 @@ class CubicBezierCurvePainter extends CustomPainter {
         size.height * (1 - controlPointsVerticalOffsetRatio));
     Offset bottomLeftCorner = Offset(0, size.height);
     Offset topRightCorner = Offset(size.width, 0);
+
     Paint brush = Paint();
     brush.color = brushColor;
     brush.style = PaintingStyle.stroke;
@@ -40,7 +41,5 @@ class CubicBezierCurvePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

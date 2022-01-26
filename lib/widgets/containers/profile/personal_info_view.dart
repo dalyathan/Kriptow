@@ -1,6 +1,5 @@
+import '/widgets/containers/common/blue_shade.dart';
 import 'package:flutter/material.dart';
-
-import '../blue_shade.dart';
 import 'personal_info.dart';
 
 class PersonalInfoView extends StatelessWidget {

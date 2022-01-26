@@ -1,3 +1,4 @@
+import '/widgets/containers/common/percent_increase.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -29,7 +30,7 @@ class Balance extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 //color: Colors.red,
                 height: height * 0.4,
                 child: FittedBox(
@@ -44,29 +45,9 @@ class Balance extends StatelessWidget {
               SizedBox(
                 width: width * 0.025,
               ),
-              Container(
+              PercentIncrease(
                 height: height * 0.3,
-                //color: Colors.amber,
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.arrow_drop_up_sharp,
-                      color: Colors.white,
-                      size: height * 0.15,
-                    ),
-                    SizedBox(
-                      width: width * 0.025,
-                    ),
-                    SizedBox(
-                      height: height * 0.175,
-                      child: FittedBox(
-                        fit: BoxFit.fitHeight,
-                        child: Text('20%',
-                            style: GoogleFonts.spartan(color: Colors.white)),
-                      ),
-                    )
-                  ],
-                ),
+                percent: '20%',
               )
             ],
           )
