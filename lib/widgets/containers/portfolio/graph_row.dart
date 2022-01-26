@@ -7,10 +7,18 @@ class GraphRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [Graph(height: height)],
+    Size size = MediaQuery.of(context).size;
+    double marginRatio = 0.05;
+    return SizedBox(
+      height: height,
+      child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        children: [
+          Graph(height: height),
+          SizedBox(width: size.width * marginRatio),
+          Graph(height: height)
+        ],
       ),
     );
   }

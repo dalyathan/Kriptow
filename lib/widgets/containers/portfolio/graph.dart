@@ -11,7 +11,7 @@ class Graph extends StatelessWidget {
     double aspectRatio = 0.9;
     double width = height * aspectRatio;
     double borderRadiusRatio = 0.2;
-    return /*Stack(
+    return Stack(
       children: [
         Container(
           height: height,
@@ -19,24 +19,16 @@ class Graph extends StatelessWidget {
           decoration: BoxDecoration(
               color: const Color.fromRGBO(248, 247, 255, 1),
               borderRadius:
-                  BorderRadius.all(Radius.circular(width * borderRadiusratio))),
-        ),*/
-        ClipPath(
-      clipper: GraphClipper(),
-      child: Container(
-        height: height,
-        width: width,
-        decoration: BoxDecoration(
-            borderRadius:
-                BorderRadius.all(Radius.circular(width * borderRadiusRatio))),
-        child: BlueShadeContainer(
-          aspectRatio: aspectRatio,
-          width: width,
+                  BorderRadius.all(Radius.circular(width * borderRadiusRatio))),
         ),
-      ),
-    )
-        /*],
-    )*/
-        ;
+        ClipPath(
+          clipper: GraphClipper(borderRadiusRatio),
+          child: BlueShadeContainer(
+            aspectRatio: aspectRatio,
+            width: width,
+          ),
+        )
+      ],
+    );
   }
 }

@@ -15,34 +15,36 @@ class Home extends StatelessWidget {
     double overlapRatio = 0.05;
     double headerAspectRatio = 1.7;
     double horizontalPaddingRatio = 0.025;
-    double verticalPaddingRatio = 0.05;
+    double verticalPaddingRatio = 0.025;
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            PersonalInfoView(
-              aspectRatio: headerAspectRatio,
-              width: size.width,
-            ),
-            Column(
-              children: [
-                Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: size.width * verticalPaddingRatio,
-                        horizontal: size.height * horizontalPaddingRatio),
-                    child: PortfolioHeader(
-                      height: size.height * 0.045,
-                    )),
-                Padding(
-                    padding: EdgeInsets.only(
-                        left: size.width * verticalPaddingRatio,
-                        top: size.height * horizontalPaddingRatio),
-                    child: GraphRow(
-                      height: size.height * 0.3,
-                    ))
-              ],
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              PersonalInfoView(
+                aspectRatio: headerAspectRatio,
+                width: size.width,
+              ),
+              Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: size.width * verticalPaddingRatio,
+                          horizontal: size.height * horizontalPaddingRatio),
+                      child: PortfolioHeader(
+                        height: size.height * 0.045,
+                      )),
+                  Padding(
+                      padding: EdgeInsets.only(
+                          left: size.width * horizontalPaddingRatio,
+                          top: size.height * verticalPaddingRatio),
+                      child: GraphRow(
+                        height: size.height * 0.3,
+                      ))
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
