@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class BitcoinIcon extends StatelessWidget {
+  final double height;
+  final Color color;
+  final bool rotate;
+  double linesGapRatio = 0.15;
+  double lineWidthRatio = 0.075;
+  double bIconRatio = 0.8;
+  BitcoinIcon(
+      {Key? key,
+      required this.height,
+      required this.color,
+      this.rotate = false})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Align(alignment: Alignment(0, -height * 0.015), child: horns()),
+      Align(
+        alignment: Alignment.center,
+        child: SizedBox(
+          height: height * bIconRatio,
+          child: FittedBox(
+            fit: BoxFit.fitHeight,
+            child: Text(
+              'B',
+              style: GoogleFonts.libreBaskerville(
+                  color: color, fontWeight: FontWeight.w900),
+            ),
+          ),
+        ),
+      ),
+      Align(alignment: Alignment(0, height * 0.015), child: horns()),
+    ]);
+  }
+
+  Container horn() => Container(
+        height: height * (1 - bIconRatio),
+        width: height * lineWidthRatio,
+        color: color,
+      );
+  Row horns() => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          horn(),
+          SizedBox(
+            width: height * linesGapRatio,
+          ),
+          horn()
+        ],
+      );
+}

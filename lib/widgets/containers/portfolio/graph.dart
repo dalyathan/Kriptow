@@ -1,3 +1,5 @@
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/portfolio/graph_detail.dart';
+
 import '/clippers/graph_clipper.dart';
 import '/widgets/containers/common/blue_shade.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +12,7 @@ class Graph extends StatelessWidget {
   Widget build(BuildContext context) {
     double aspectRatio = 0.9;
     double width = height * aspectRatio;
-    double borderRadiusRatio = 0.2;
+    double borderRadiusRatio = 0.1;
     return Stack(
       children: [
         Container(
@@ -27,7 +29,8 @@ class Graph extends StatelessWidget {
             aspectRatio: aspectRatio,
             width: width,
           ),
-        )
+        ),
+        GraphDetail(width: width, height: height)
       ],
     );
   }
