@@ -53,7 +53,7 @@ class GraphDetail extends StatelessWidget {
                 child: FittedBox(
                   child: Text(
                     name,
-                    style: GoogleFonts.manrope(
+                    style: GoogleFonts.sora(
                         color: const Color.fromRGBO(39, 35, 67, 1)),
                   ),
                 ),
@@ -62,7 +62,7 @@ class GraphDetail extends StatelessWidget {
                 width: width * 0.2,
               ),
               CubicBezierCurveIcon(
-                  width: width * 0.1,
+                  width: width * 0.075,
                   color: const Color.fromRGBO(95, 91, 117, 1))
             ],
           ),

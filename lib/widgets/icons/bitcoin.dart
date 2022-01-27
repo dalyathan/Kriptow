@@ -13,10 +13,6 @@ class BitcoinIcon extends SuperTypeIcon {
   BitcoinIcon({Key? key, required this.color, this.rotate = false})
       : super(key: key);
 
-  set setHeight(double height) {
-    super.height = height;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(children: [

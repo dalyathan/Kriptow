@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: size.width * verticalPaddingRatio,
                           horizontal: size.height * horizontalPaddingRatio),
-                      child: const LivePrices()),
+                      child: LivePrices()),
                 ],
               )
             ],

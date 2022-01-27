@@ -6,9 +6,9 @@ class BinanceCoinIconPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     iconSize = size;
-    double overallOffsetRatio = 0.25;
-    double gapRatio = 0.15;
-    double howThickRatio = 0.2;
+    double overallOffsetRatio = 0.175;
+    double gapRatio = 0.05;
+    double howThickRatio = 0.1;
     const Color iconBackgroundColor = Color.fromRGBO(243, 186, 44, 1);
     double thickness = size.width * howThickRatio;
     double gap = size.width * gapRatio;
@@ -37,13 +37,7 @@ class BinanceCoinIconPainter extends CustomPainter {
     Offset D = reflectYAxis(C);
     Offset G = reflectYAxis(E);
 
-    Path topArrowPath = Path()
-      ..addPolygon([
-        A,
-        C,
-        E,
-        B, /*G, D*/
-      ], false);
+    Path topArrowPath = Path()..addPolygon([A, C, E, B, G, D], true);
     brush.color = Colors.white;
     canvas.drawPath(topArrowPath, brush);
     //the rest of the points can be obtained by reflecting through y=x, y=0 and x=0
@@ -69,11 +63,11 @@ class BinanceCoinIconPainter extends CustomPainter {
 
   toDartCoordinate(Offset cartesianPoint) => Offset(
       cartesianPoint.dx + iconSize.width * 0.5,
-      cartesianPoint.dy + iconSize.height * 0.5);
+      iconSize.height * 0.5 - cartesianPoint.dy);
 
   toCartesianCoordinate(Offset dartianPoint) => Offset(
       dartianPoint.dx - iconSize.width * 0.5,
-      dartianPoint.dy - iconSize.height * 0.5);
+      iconSize.height * 0.5 - dartianPoint.dy);
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
