@@ -1,3 +1,4 @@
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/live_prices/live_prices.dart';
 import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/portfolio/graph_row.dart';
 
 import '../widgets/containers/portfolio/portfolio_header.dart';
@@ -22,7 +23,7 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
               PersonalInfoView(
-                aspectRatio: headerAspectRatio,
+                height: size.width / headerAspectRatio,
                 width: size.width,
               ),
               Column(
@@ -40,7 +41,12 @@ class Home extends StatelessWidget {
                           top: size.height * verticalPaddingRatio),
                       child: GraphRow(
                         height: size.height * 0.25,
-                      ))
+                      )),
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: size.width * verticalPaddingRatio,
+                          horizontal: size.height * horizontalPaddingRatio),
+                      child: const LivePrices()),
                 ],
               )
             ],

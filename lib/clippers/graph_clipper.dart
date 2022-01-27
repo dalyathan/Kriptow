@@ -60,5 +60,5 @@ class GraphClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

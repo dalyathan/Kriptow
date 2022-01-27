@@ -20,7 +20,7 @@ class PortfolioHeader extends StatelessWidget {
                     color: Colors.black, fontWeight: FontWeight.bold)),
           ),
         ),
-        PortfolioIcon(width: height)
+        PortfolioIcon(width: height * 0.8)
       ],
     );
   }

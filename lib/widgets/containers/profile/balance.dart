@@ -20,33 +20,33 @@ class Balance extends StatelessWidget {
             height: height * 0.25,
             child: FittedBox(
               fit: BoxFit.fitHeight,
-              child: Text('Balance',
-                  style: GoogleFonts.chivo(color: Colors.white)),
+              child:
+                  Text('Balance', style: GoogleFonts.sora(color: Colors.white)),
             ),
           ),
           SizedBox(
-            height: height * 0.2,
+            height: height * 0.1,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              Container(
                 //color: Colors.red,
-                height: height * 0.4,
+                height: height * 0.325,
                 child: FittedBox(
                   fit: BoxFit.fitHeight,
                   child: Center(
                     child: Text('\$3,975.21',
-                        style: GoogleFonts.spartan(
+                        style: GoogleFonts.sora(
                             color: const Color.fromRGBO(186, 232, 232, 1))),
                   ),
                 ),
               ),
               SizedBox(
-                width: width * 0.025,
+                width: width * 0.075,
               ),
               PercentIncrease(
-                height: height * 0.3,
+                height: height * 0.325,
                 percent: '20%',
               )
             ],

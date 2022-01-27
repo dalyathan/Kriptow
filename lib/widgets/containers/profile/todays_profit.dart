@@ -18,7 +18,7 @@ class TodaysProfit extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: height * 0.2,
+            height: height * 0.25,
             child: FittedBox(
               fit: BoxFit.fitHeight,
               child: Text('Todays Profit',
@@ -26,9 +26,10 @@ class TodaysProfit extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: height * 0.25,
+            height: height * 0.1,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 //color: Colors.yellow,
@@ -37,13 +38,13 @@ class TodaysProfit extends StatelessWidget {
                   fit: BoxFit.fitHeight,
                   child: Center(
                     child: Text('\$1,205',
-                        style: GoogleFonts.spartan(color: Colors.white)),
+                        style: GoogleFonts.sora(color: Colors.white)),
                   ),
                 ),
               ),
-              SizedBox(
-                width: width * 0.05,
-              ),
+              // SizedBox(
+              //   width: width * 0.05,
+              // ),
               Container(
                 height: height * 0.325,
                 //color: Colors.green,

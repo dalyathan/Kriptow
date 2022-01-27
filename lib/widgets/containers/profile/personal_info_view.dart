@@ -4,9 +4,8 @@ import 'personal_info.dart';
 
 class PersonalInfoView extends StatelessWidget {
   final double width;
-  final double aspectRatio;
-  const PersonalInfoView(
-      {Key? key, required this.width, required this.aspectRatio})
+  final double height;
+  const PersonalInfoView({Key? key, required this.width, required this.height})
       : super(key: key);
 
   @override
@@ -14,10 +13,10 @@ class PersonalInfoView extends StatelessWidget {
     return Stack(
       children: [
         BlueShadeContainer(
-          aspectRatio: aspectRatio,
+          height: height,
           width: width,
         ),
-        PersonalInfo(height: width / aspectRatio)
+        PersonalInfo(height: height)
       ],
     );
   }

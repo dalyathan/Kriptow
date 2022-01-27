@@ -1,6 +1,7 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/common/percent_increase.dart';
+import '/widgets/icons/supertype.dart';
 
-import '/widgets/icons/bitcoin.dart';
+import '/widgets/containers/common/percent_increase.dart';
+
 import '/widgets/icons/cubic_bezier_curve.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,13 +9,25 @@ import 'package:google_fonts/google_fonts.dart';
 class GraphDetail extends StatelessWidget {
   final double width;
   final double height;
-  const GraphDetail({Key? key, required this.width, required this.height})
+  final SuperTypeIcon icon;
+  final String name;
+  final String totalAmount;
+  final String percentString;
+  const GraphDetail(
+      {Key? key,
+      required this.width,
+      required this.height,
+      required this.icon,
+      required this.name,
+      required this.totalAmount,
+      required this.percentString})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double iconBorderRadius = 0.075;
     double paddingRatio = 0.05;
+    icon.height = height * 0.16;
     return Padding(
       padding: EdgeInsets.all(width * paddingRatio),
       child: Column(
@@ -23,16 +36,14 @@ class GraphDetail extends StatelessWidget {
           Row(
             children: [
               Container(
-                  height: height * 0.2,
-                  width: height * 0.2,
+                  height: height * 0.25,
+                  width: width * 0.2,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(
                           Radius.circular(width * iconBorderRadius))),
                   child: Center(
-                    child: BitcoinIcon(
-                        height: height * 0.16,
-                        color: const Color.fromRGBO(247, 149, 57, 1)),
+                    child: icon,
                   )),
               SizedBox(
                 width: width * 0.05,
@@ -41,7 +52,7 @@ class GraphDetail extends StatelessWidget {
                 width: width * 0.3,
                 child: FittedBox(
                   child: Text(
-                    'Bitcoin',
+                    name,
                     style: GoogleFonts.manrope(
                         color: const Color.fromRGBO(39, 35, 67, 1)),
                   ),
@@ -57,34 +68,37 @@ class GraphDetail extends StatelessWidget {
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 //color: Colors.yellow,
                 height: height * 0.125,
+                width: width * 0.4,
                 child: FittedBox(
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.contain,
                   child: Center(
-                    child: Text('\$1,205',
+                    child: Text('\$$totalAmount',
                         style: GoogleFonts.spartan(color: Colors.white)),
                   ),
                 ),
               ),
               SizedBox(
-                width: width * 0.1,
+                width: width * 0.2,
               ),
               Container(
                 height: height * 0.125,
+                width: width * 0.3,
                 decoration: const ShapeDecoration(
                   color: Color.fromRGBO(57, 63, 83, 1),
                   shape: StadiumBorder(),
                 ),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: width * 0.075),
+                child: Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: width * paddingRatio),
+                  child: Center(
                     child: PercentIncrease(
                       height: height * 0.1,
-                      percent: '5.71%',
+                      percent: percentString,
                     ),
                   ),
                 ),

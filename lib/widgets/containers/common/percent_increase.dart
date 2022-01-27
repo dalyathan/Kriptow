@@ -11,25 +11,26 @@ class PercentIncrease extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: height,
-      // color: Colors.amber,
+      //color: Colors.green,
       child: Row(
         children: [
-          SizedBox(
-              //color: Colors.green,
-              height: height * 0.583,
+          Container(
+              //color: Colors.blue,
+              height: height * 0.75,
               child: Align(
-                  alignment: Alignment(0, -height * 0.0083),
-                  child: IncreasingIcon(height: height * 0.33))),
+                  //alignment: Alignment(0, -height * 0.0083),
+                  child: IncreasingIcon(height: height * 0.75))),
           SizedBox(
             width: height * 0.2,
           ),
-          SizedBox(
+          Container(
             //color: Colors.orange,
-            height: height * 0.583,
+            height: height * 0.55,
             child: FittedBox(
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.bottomCenter,
               child: Text(percent,
                   style: GoogleFonts.spartan(color: Colors.white)),
             ),

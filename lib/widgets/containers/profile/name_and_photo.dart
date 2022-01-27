@@ -28,7 +28,7 @@ class NameAndPhoto extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.fitWidth,
               child: Text('Surafel Melese',
-                  style: GoogleFonts.chivo(color: Colors.white)),
+                  style: GoogleFonts.sora(color: Colors.white)),
             ),
           )
         ],

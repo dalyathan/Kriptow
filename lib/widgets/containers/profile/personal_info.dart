@@ -2,8 +2,6 @@ import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/profil
 import 'package:flutter/material.dart';
 
 import 'balance.dart';
-import 'name_and_photo.dart';
-import 'new_notification.dart';
 import 'todays_profit.dart';
 
 class PersonalInfo extends StatelessWidget {

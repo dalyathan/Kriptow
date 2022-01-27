@@ -6,12 +6,17 @@ import 'package:flutter/material.dart';
 
 class Graph extends StatelessWidget {
   final double height;
-  const Graph({Key? key, required this.height}) : super(key: key);
+  final double width;
+  final GraphDetail detail;
+  const Graph(
+      {Key? key,
+      required this.height,
+      required this.detail,
+      required this.width})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double aspectRatio = 0.9;
-    double width = height * aspectRatio;
     double borderRadiusRatio = 0.1;
     return Stack(
       children: [
@@ -26,11 +31,11 @@ class Graph extends StatelessWidget {
         ClipPath(
           clipper: GraphClipper(borderRadiusRatio),
           child: BlueShadeContainer(
-            aspectRatio: aspectRatio,
+            height: height,
             width: width,
           ),
         ),
-        GraphDetail(width: width, height: height)
+        detail
       ],
     );
   }
