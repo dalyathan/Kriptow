@@ -8,8 +8,9 @@ class BinanceCoinIcon extends SuperTypeIcon {
 
   @override
   Widget build(BuildContext context) {
+    double aspectRatio = 1;
     return CustomPaint(
-      size: Size.square(height),
+      size: Size(height * aspectRatio, height),
       painter: BinanceCoinIconPainter(),
     );
   }

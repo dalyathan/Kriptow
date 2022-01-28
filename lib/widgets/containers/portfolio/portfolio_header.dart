@@ -8,20 +8,31 @@ class PortfolioHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SizedBox(
-          height: height * 0.8,
-          child: FittedBox(
-            fit: BoxFit.fitHeight,
-            child: Text('Portfolio',
-                style: GoogleFonts.spartan(
-                    color: Colors.black, fontWeight: FontWeight.bold)),
-          ),
-        ),
+        Text('Portfolio',
+            style: GoogleFonts.spartan(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 15)),
+        // ),
+        // ),
         PortfolioIcon(width: height * 0.8)
       ],
     );
   }
 }
+/**
+ * SizedBox(
+          height: height * 0.8,
+          width: size.width * 0.25,
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text('Portfolio',
+                style: GoogleFonts.spartan(
+                    color: Colors.black, fontWeight: FontWeight.bold)),
+          ),
+        )
+ */

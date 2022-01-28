@@ -1,6 +1,7 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/live_prices/live_price_tab.dart';
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin.dart';
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/cardano.dart';
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin_copy.dart';
+
+import '/widgets/containers/live_prices/live_price_tab.dart';
+import '/widgets/icons/cardano.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,10 +12,22 @@ class LivePrices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    double verticalPaddingRatio = 0.035;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        title("Live Prices"),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: size.height * verticalPaddingRatio,
+          ),
+          child: Text("Live Prices",
+              style: GoogleFonts.spartan(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15)),
+        ),
+        //title(),
         LivePriceTab(
           height: size.width * 0.15,
           amountTransacted: '412.35',
@@ -30,13 +43,14 @@ class LivePrices extends StatelessWidget {
           name: 'Binance Coin',
           percentChange: '-1.66',
           shortName: 'ADA',
-        )
+        ),
       ],
     );
   }
 
   Widget title(String heading) => SizedBox(
-        width: size.width * 0.2,
+        height: size.height * 0.07,
+        width: size.width * 0.25,
         child: FittedBox(
           fit: BoxFit.fitWidth,
           child: Text(heading,

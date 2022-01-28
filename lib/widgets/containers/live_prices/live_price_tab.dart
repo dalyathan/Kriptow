@@ -1,4 +1,3 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin.dart';
 import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/supertype.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,7 +57,7 @@ class LivePriceTab extends StatelessWidget {
           ],
         ),
         const Spacer(
-          flex: 6,
+          flex: 17,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,

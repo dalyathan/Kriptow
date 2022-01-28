@@ -6,12 +6,8 @@ class BinanceCoinIconPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     iconSize = size;
-    double overallOffsetRatio = 0.175;
-    double gapRatio = 0.05;
-    double howThickRatio = 0.1;
+    double overallOffsetRatio = 0.225;
     const Color iconBackgroundColor = Color.fromRGBO(243, 186, 44, 1);
-    double thickness = size.width * howThickRatio;
-    double gap = size.width * gapRatio;
     //draw the background
     Paint brush = Paint();
     brush.color = iconBackgroundColor;
@@ -20,27 +16,58 @@ class BinanceCoinIconPainter extends CustomPainter {
 
     canvas.drawCircle(
         Offset(size.width * 0.5, size.height * 0.5), size.width * 0.5, brush);
-    //define the Offsets
+    //define the Offsets for the top arrow
 
+    double angleAKP = atan((size.height * (0.5 - overallOffsetRatio)) /
+        (size.width * (0.5 - overallOffsetRatio)));
+    double angleKAP = pi - 2 * angleAKP;
+    double halfKAP = angleKAP / 2;
+    double howThickRatio = 0.1;
+    double gapRatio =
+        (((0.5 - overallOffsetRatio) - (3 * howThickRatio * cos(angleAKP))) *
+                0.5) /
+            cos(angleAKP);
+    double thickness = size.width * howThickRatio;
+    double gap = size.width * gapRatio;
+    double lengthAB = thickness * sqrt(2 - 2 * cos(pi - 2 * halfKAP));
     Offset A = Offset(size.width * 0.5, size.height * overallOffsetRatio);
-    Offset B = Offset(A.dx, A.dy + thickness * sqrt(2));
+    Offset B = Offset(A.dx, A.dy + lengthAB);
     Offset K = Offset(size.width * overallOffsetRatio, size.height * 0.5);
-    Offset H = Offset(K.dx + thickness / sqrt(2), K.dy - thickness / sqrt(2));
+    Offset H = Offset(
+        K.dx + thickness * cos(angleAKP), K.dy - thickness * sin(angleAKP));
     double angleLHE = atan(gap / thickness);
     Offset C = Offset(H.dx + gap * cos(pi / 2 - angleLHE),
         H.dy - gap * sin(pi / 2 - angleLHE));
-    Offset L = Offset(K.dx + thickness * sqrt(2), K.dy);
+    Offset L = Offset(K.dx + 2 * thickness * cos(angleAKP), K.dy);
     Offset E = Offset(L.dx + gap * cos(pi / 2 - angleLHE),
         L.dy - gap * sin(pi / 2 - angleLHE));
-    Offset M = Offset(L.dx + gap * sqrt(2), K.dy);
-    Offset F = Offset(A.dx, B.dy + gap * sqrt(2));
+    Offset M = Offset(L.dx + 2 * gap * cos(angleAKP), K.dy);
+    //Offset F = Offset(A.dx, B.dy + gap * sqrt(2 - 2 * cos(pi - 2 * halfKAP)));
+    Offset F = Offset(size.width * 0.5, H.dy);
     Offset D = reflectYAxis(C);
     Offset G = reflectYAxis(E);
 
-    Path topArrowPath = Path()..addPolygon([A, C, E, B, G, D], true);
     brush.color = Colors.white;
-    canvas.drawPath(topArrowPath, brush);
-    //the rest of the points can be obtained by reflecting through y=x, y=0 and x=0
+    canvas.drawPath(Path()..addPolygon([A, C, E, B, G, D], true), brush);
+    //the diamonds in the middle
+    Offset Q = reflectXAxis(H);
+    canvas.drawPath(Path()..addPolygon([K, H, L, Q], true), brush);
+    Offset N = reflectYAxis(M);
+    Offset S = reflectXAxis(F);
+    canvas.drawPath(Path()..addPolygon([M, F, N, S], true), brush);
+    Offset J = reflectYAxis(H);
+    Offset P = reflectYAxis(K);
+    Offset O = reflectYAxis(L);
+    Offset U = reflectXAxis(J);
+    canvas.drawPath(Path()..addPolygon([J, P, U, O], true), brush);
+    //the arrow in the bottom
+    Offset V = reflectXAxis(C);
+    Offset R = reflectXAxis(E);
+    Offset W = reflectXAxis(B);
+    Offset T = reflectXAxis(G);
+    Offset X = reflectXAxis(D);
+    Offset Y = reflectXAxis(A);
+    canvas.drawPath(Path()..addPolygon([V, R, W, T, X, Y], true), brush);
   }
 
   reflectYAxis(Offset point) {
@@ -59,6 +86,16 @@ class BinanceCoinIconPainter extends CustomPainter {
     Offset cartesianPoint = toCartesianCoordinate(point);
     Offset cartesianValue = Offset(cartesianPoint.dy, cartesianPoint.dx);
     return toDartCoordinate(cartesianValue);
+  }
+
+  translate(Offset point, Offset delta) {
+    Offset cartesianPoint = toCartesianCoordinate(point);
+    Offset cartesianDelta = delta;
+    //toCartesianCoordinate(delta);
+    Offset cartesianTranslatedVector = Offset(
+        cartesianPoint.dx + cartesianDelta.dx,
+        cartesianPoint.dy + cartesianDelta.dy);
+    return toDartCoordinate(cartesianTranslatedVector);
   }
 
   toDartCoordinate(Offset cartesianPoint) => Offset(
