@@ -1,4 +1,6 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/painters/binance_coin.dart';
+import '../../painters/binance_coin_foreground.dart';
+import 'dart:math';
+import '../../painters/binance_coin_background.dart';
 import 'package:flutter/material.dart';
 
 import 'supertype.dart';
@@ -11,7 +13,13 @@ class BinanceCoinIcon extends SuperTypeIcon {
     double aspectRatio = 1;
     return CustomPaint(
       size: Size(height * aspectRatio, height),
-      painter: BinanceCoinIconPainter(),
+      painter: BinanceCoinIconBackgroundPainter(),
+      child: Transform.rotate(
+        angle: -atan(aspectRatio),
+        child: CustomPaint(
+            size: Size(height * aspectRatio, height),
+            painter: BinanceCoinIconForegroundPainter()),
+      ),
     );
   }
 }

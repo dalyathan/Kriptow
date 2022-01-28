@@ -1,42 +1,50 @@
+import 'dart:math';
 import 'dart:ui';
 
 class VectorUtil {
-  final double frameWidth;
-  final double frameHeight;
+  final Size frame;
 
-  VectorUtil(this.frameWidth, this.frameHeight);
-  reflectYAxis(Offset point) {
-    Offset cartesianPoint = toCartesianCoordinate(point);
-    Offset cartesianValue = Offset(-cartesianPoint.dx, cartesianPoint.dy);
+  VectorUtil(this.frame);
+  Offset reflectYAxis(Offset dartianOffset) {
+    Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
+    Offset cartesianValue = Offset(-cartesianOffset.dx, cartesianOffset.dy);
     return toDartCoordinate(cartesianValue);
   }
 
-  reflectXAxis(Offset point) {
-    Offset cartesianPoint = toCartesianCoordinate(point);
-    Offset cartesianValue = Offset(cartesianPoint.dx, -cartesianPoint.dy);
+  Offset reflectXAxis(Offset dartianOffset) {
+    Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
+    Offset cartesianValue = Offset(cartesianOffset.dx, -cartesianOffset.dy);
     return toDartCoordinate(cartesianValue);
   }
 
-  reflectYEqualsX(Offset point) {
-    Offset cartesianPoint = toCartesianCoordinate(point);
-    Offset cartesianValue = Offset(cartesianPoint.dy, cartesianPoint.dx);
+  Offset reflectYEqualsX(Offset dartianOffset) {
+    Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
+    Offset cartesianValue = Offset(cartesianOffset.dy, cartesianOffset.dx);
     return toDartCoordinate(cartesianValue);
   }
 
-  translate(Offset point, Offset delta) {
-    Offset cartesianPoint = point; //toCartesianCoordinate(point);
-    Offset cartesianDelta = delta;
-    //toCartesianCoordinate(delta);
-    Offset cartesianTranslatedVector = Offset(
-        cartesianPoint.dx + cartesianDelta.dx,
-        cartesianPoint.dy + cartesianDelta.dy);
-    return cartesianTranslatedVector; //toDartCoordinate(cartesianTranslatedVector);
+  Offset translate(Offset point, Offset delta) =>
+      Offset(point.dx + delta.dx, point.dy + delta.dy);
+
+  Offset rotate(Offset dartianOffset, double angleInRadians) {
+    Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
+    Offset cartesianValue = Offset(
+        cartesianOffset.dx * cos(angleInRadians) -
+            cartesianOffset.dy * sin(angleInRadians),
+        cartesianOffset.dx * sin(angleInRadians) +
+            cartesianOffset.dy * cos(angleInRadians));
+    return toDartCoordinate(cartesianValue);
   }
 
-  toDartCoordinate(Offset cartesianPoint) => Offset(
-      cartesianPoint.dx + frameWidth * 0.5,
-      frameHeight * 0.5 - cartesianPoint.dy);
+  List<Offset> rotatePolygon(
+          List<Offset> dartianOffsets, double angleInRadians) =>
+      dartianOffsets.map((offset) => rotate(offset, angleInRadians)).toList();
 
-  toCartesianCoordinate(Offset dartianPoint) => Offset(
-      dartianPoint.dx - frameWidth * 0.5, frameHeight * 0.5 - dartianPoint.dy);
+  Offset toDartCoordinate(Offset cartesianPoint) => Offset(
+      cartesianPoint.dx + frame.width * 0.5,
+      frame.height * 0.5 - cartesianPoint.dy);
+
+  Offset toCartesianCoordinate(Offset dartianPoint) => Offset(
+      dartianPoint.dx - frame.width * 0.5,
+      frame.height * 0.5 - dartianPoint.dy);
 }

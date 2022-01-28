@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class BinanceCoinIconForegroundPainter extends CustomPainter {
   late Size iconSize;
-  late double overallOffsetRatio;
-  late double thicknessRatio;
   late double gapRatio;
   late Paint brush;
   late Canvas myCanvas;
+  final double overallOffsetRatio = 0.25;
+  final double thicknessRatio = 0.125;
+
   @override
   void paint(Canvas canvas, Size size) {
     iconSize = size;
     myCanvas = canvas;
-    overallOffsetRatio = 0.275;
-    thicknessRatio = 0.125;
-    gapRatio = 0.5 - 1.5 * thicknessRatio;
+    gapRatio = 0.5 - overallOffsetRatio - 1.5 * thicknessRatio;
     //draw the background
     brush = Paint();
     brush.color = Colors.white;
@@ -24,6 +22,7 @@ class BinanceCoinIconForegroundPainter extends CustomPainter {
     drawCenterDiamond();
     drawRightDiamond();
     drawTopArrow();
+    drawBottomArrow();
   }
 
   drawLeftDiamond() {
@@ -70,6 +69,21 @@ class BinanceCoinIconForegroundPainter extends CustomPainter {
     Offset G = Offset(C.dx, H.dy);
 
     myCanvas.drawPath(Path()..addPolygon([C, D, P, O, H, G], true), brush);
+  }
+
+  drawBottomArrow() {
+    Offset I = Offset(iconSize.width * overallOffsetRatio,
+        iconSize.height * (overallOffsetRatio + thicknessRatio + gapRatio));
+    Offset J = Offset(I.dx + iconSize.width * thicknessRatio, I.dy);
+    Offset Q = Offset(
+        J.dx, iconSize.height * (1 - overallOffsetRatio - thicknessRatio));
+    Offset R = Offset(
+        iconSize.width * (1 - overallOffsetRatio - thicknessRatio - gapRatio),
+        Q.dy);
+    Offset V = Offset(R.dx, R.dy + iconSize.height * thicknessRatio);
+    Offset U = Offset(I.dx, V.dy);
+
+    myCanvas.drawPath(Path()..addPolygon([I, J, Q, R, V, U], true), brush);
   }
 
   @override

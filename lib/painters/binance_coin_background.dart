@@ -6,7 +6,6 @@ class BinanceCoinIconBackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     iconSize = size;
-    double overallOffsetRatio = 0.225;
     const Color iconBackgroundColor = Color.fromRGBO(243, 186, 44, 1);
     //draw the background
     Paint brush = Paint();

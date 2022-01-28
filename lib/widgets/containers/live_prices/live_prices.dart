@@ -1,4 +1,4 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin_copy.dart';
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin.dart';
 
 import '/widgets/containers/live_prices/live_price_tab.dart';
 import '/widgets/icons/cardano.dart';
