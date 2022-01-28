@@ -8,19 +8,19 @@ class VectorUtil {
   Offset reflectYAxis(Offset dartianOffset) {
     Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
     Offset cartesianValue = Offset(-cartesianOffset.dx, cartesianOffset.dy);
-    return toDartCoordinate(cartesianValue);
+    return toDartianCoordinate(cartesianValue);
   }
 
   Offset reflectXAxis(Offset dartianOffset) {
     Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
     Offset cartesianValue = Offset(cartesianOffset.dx, -cartesianOffset.dy);
-    return toDartCoordinate(cartesianValue);
+    return toDartianCoordinate(cartesianValue);
   }
 
   Offset reflectYEqualsX(Offset dartianOffset) {
     Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
     Offset cartesianValue = Offset(cartesianOffset.dy, cartesianOffset.dx);
-    return toDartCoordinate(cartesianValue);
+    return toDartianCoordinate(cartesianValue);
   }
 
   Offset translate(Offset point, Offset delta) =>
@@ -33,14 +33,14 @@ class VectorUtil {
             cartesianOffset.dy * sin(angleInRadians),
         cartesianOffset.dx * sin(angleInRadians) +
             cartesianOffset.dy * cos(angleInRadians));
-    return toDartCoordinate(cartesianValue);
+    return toDartianCoordinate(cartesianValue);
   }
 
   List<Offset> rotatePolygon(
           List<Offset> dartianOffsets, double angleInRadians) =>
       dartianOffsets.map((offset) => rotate(offset, angleInRadians)).toList();
 
-  Offset toDartCoordinate(Offset cartesianPoint) => Offset(
+  Offset toDartianCoordinate(Offset cartesianPoint) => Offset(
       cartesianPoint.dx + frame.width * 0.5,
       frame.height * 0.5 - cartesianPoint.dy);
 

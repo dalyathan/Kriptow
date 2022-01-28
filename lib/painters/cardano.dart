@@ -31,7 +31,7 @@ class CardanoIconPainter extends CustomPainter {
   drawPointyTopHexagon(double radius) {
     Offset zeroDegreesOffset =
         Offset(iconSize.width * 0.5, iconSize.height * 0.5 - radius);
-    Offset 
+    //Offset
   }
 
   drawFlatTopHexagon(double radius) {}
