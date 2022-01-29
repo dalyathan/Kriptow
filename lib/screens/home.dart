@@ -1,5 +1,6 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/live_prices/live_prices.dart';
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/portfolio/graph_row.dart';
+import '/widgets/containers/common/custom_bottom_navigation_bar.dart';
+import '/widgets/containers/live_prices/live_prices.dart';
+import '/widgets/containers/portfolio/graph_row.dart';
 
 import '../widgets/containers/portfolio/portfolio_header.dart';
 
@@ -52,6 +53,7 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: CustomBottomNavigationBar(height: size.height * 0.2),
     );
   }
 }

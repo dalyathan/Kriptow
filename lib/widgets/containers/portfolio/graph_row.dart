@@ -18,14 +18,13 @@ class GraphRow extends StatelessWidget {
     return SizedBox(
       height: height,
       child: ListView(
-        //shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: [
           Graph(
             height: height,
             detail: GraphDetail(
               height: height,
-              icon: BitcoinIcon(
+              icon: BitCoinIcon(
                 color: const Color.fromRGBO(247, 148, 29, 1),
               ),
               name: 'Bitcoin',
