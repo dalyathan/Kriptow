@@ -8,6 +8,10 @@ import 'supertype.dart';
 class BinanceCoinIcon extends SuperTypeIcon {
   BinanceCoinIcon({Key? key}) : super(key: key);
 
+  BinanceCoinIcon.withHeight(double height, {Key? key}) : super(key: key) {
+    super.height = height;
+  }
+
   @override
   Widget build(BuildContext context) {
     double aspectRatio = 1;

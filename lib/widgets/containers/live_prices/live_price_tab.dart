@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LivePriceTab extends StatelessWidget {
   final double height;
-  final SuperTypeIcon icon;
+  final Widget icon;
   final String name;
   final String shortName;
   final String amountTransacted;
@@ -22,12 +22,12 @@ class LivePriceTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    icon.height = height;
+    //icon.height = height;
     return Row(
       children: [
         icon,
         const Spacer(
-          flex: 1,
+          flex: 2,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

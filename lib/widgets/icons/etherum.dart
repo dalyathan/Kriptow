@@ -3,9 +3,9 @@ import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/supertype.d
 import 'package:flutter/material.dart';
 
 class EtherumIcon extends SuperTypeIcon {
-  EtherumIcon({Key? key}) : super(key: key);
+  EtherumIcon({Key? key, height}) : super(key: key);
 
-  set setHeight(double height) {
+  EtherumIcon.withHeight(double height, {Key? key}) : super(key: key) {
     super.height = height;
   }
 

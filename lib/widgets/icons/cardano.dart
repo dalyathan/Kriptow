@@ -7,6 +7,10 @@ class CardanoIcon extends SuperTypeIcon {
     Key? key,
   }) : super(key: key);
 
+  CardanoIcon.withHeight(double height, {Key? key}) : super(key: key) {
+    super.height = height;
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomPaint(

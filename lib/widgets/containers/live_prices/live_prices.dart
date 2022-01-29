@@ -1,4 +1,5 @@
 import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin.dart';
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/etherum.dart';
 
 import '/widgets/containers/live_prices/live_price_tab.dart';
 import '/widgets/icons/cardano.dart';
@@ -13,7 +14,10 @@ class LivePrices extends StatelessWidget {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     double verticalPaddingRatio = 0.035;
-
+    double rowheight = size.width * 0.15;
+    SizedBox space = SizedBox(
+      height: rowheight * 0.25,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,35 +31,41 @@ class LivePrices extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 15)),
         ),
-        //title(),
         LivePriceTab(
-          height: size.width * 0.15,
+          height: rowheight,
           amountTransacted: '412.35',
-          icon: BinanceCoinIcon(),
+          icon: BinanceCoinIcon.withHeight(rowheight),
           name: 'Binance Coin',
           percentChange: '+3.59',
           shortName: 'BNB',
         ),
+        space,
         LivePriceTab(
-          height: size.width * 0.15,
-          amountTransacted: '19,908.04',
-          icon: CardanoIcon(),
-          name: 'Binance Coin',
+          height: rowheight,
+          amountTransacted: '908.04',
+          icon: CardanoIcon.withHeight(rowheight),
+          name: 'Cardano',
           percentChange: '-1.66',
+          shortName: 'ADA',
+        ),
+        space,
+        LivePriceTab(
+          height: rowheight,
+          amountTransacted: '3,781.64',
+          icon: Container(
+            height: rowheight,
+            width: rowheight,
+            decoration: const BoxDecoration(
+                color: Color.fromRGBO(20, 27, 47, 1), shape: BoxShape.circle),
+            child: Center(
+              child: EtherumIcon.withHeight(rowheight * 0.8),
+            ),
+          ),
+          name: 'Etherum',
+          percentChange: '-1.77',
           shortName: 'ADA',
         ),
       ],
     );
   }
-
-  Widget title(String heading) => SizedBox(
-        height: size.height * 0.07,
-        width: size.width * 0.25,
-        child: FittedBox(
-          fit: BoxFit.fitWidth,
-          child: Text(heading,
-              style: GoogleFonts.sora(
-                  color: Colors.black, fontWeight: FontWeight.bold)),
-        ),
-      );
 }
