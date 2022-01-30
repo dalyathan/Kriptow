@@ -24,7 +24,7 @@ class CardanoIconPainter extends CustomPainter {
     //brush.style = PaintingStyle.stroke;
     brush.strokeWidth = 1;
 
-    double radius1 = size.width * 0.1;
+    double radius1 = size.width * 0.085;
     drawFlatTopHexagon(radius1, radius1 * 0.45);
 
     double radius2 = radius1 * 2;

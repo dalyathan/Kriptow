@@ -26,13 +26,13 @@ class VectorUtil {
   Offset translate(Offset point, Offset delta) =>
       Offset(point.dx + delta.dx, point.dy + delta.dy);
 
-  Offset rotate(Offset dartianOffset, double angleInRadians) {
+  Offset rotate(Offset dartianOffset, double counterClockwiseInRadians) {
     Offset cartesianOffset = toCartesianCoordinate(dartianOffset);
     Offset cartesianValue = Offset(
-        cartesianOffset.dx * cos(angleInRadians) -
-            cartesianOffset.dy * sin(angleInRadians),
-        cartesianOffset.dx * sin(angleInRadians) +
-            cartesianOffset.dy * cos(angleInRadians));
+        cartesianOffset.dx * cos(counterClockwiseInRadians) -
+            cartesianOffset.dy * sin(counterClockwiseInRadians),
+        cartesianOffset.dx * sin(counterClockwiseInRadians) +
+            cartesianOffset.dy * cos(counterClockwiseInRadians));
     return toDartianCoordinate(cartesianValue);
   }
 

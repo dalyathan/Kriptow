@@ -1,3 +1,8 @@
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/exchange.dart';
+
+import '/widgets/containers/common/active_icon.dart';
+import '/widgets/containers/common/not_active_icon.dart';
+
 import '/widgets/icons/home.dart';
 import 'package:flutter/material.dart';
 
@@ -22,14 +27,28 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
+    double iconHeight = widget.height * 0.125;
+    HomeIcon homeIcon = HomeIcon.withHeight(iconHeight);
+    ExchangeIcon exchangeIcon = ExchangeIcon.withHeight(iconHeight);
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-            icon: HomeIcon(isActive: false, height: widget.height * 0.25),
-            activeIcon: HomeIcon(isActive: true, height: widget.height * 0.25),
+            icon: NotActiveIconContainer(
+              icon: homeIcon,
+            ),
+            activeIcon: ActiveIconContainer(
+              icon: homeIcon,
+              title: 'Home',
+            ),
             title: Container()),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.business),
+          icon: NotActiveIconContainer(
+            icon: exchangeIcon,
+          ),
+          activeIcon: ActiveIconContainer(
+            icon: exchangeIcon,
+            title: 'Rate',
+          ),
           title: Container(),
         ),
         BottomNavigationBarItem(

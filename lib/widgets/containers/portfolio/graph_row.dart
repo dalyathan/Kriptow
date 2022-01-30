@@ -1,13 +1,13 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/portfolio/graph_detail.dart';
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/bitcoin.dart';
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/etherum.dart';
+import '/widgets/containers/portfolio/graph_detail.dart';
+import '/widgets/icons/bitcoin.dart';
+import '/widgets/icons/etherum.dart';
 
 import '/widgets/containers/portfolio/graph.dart';
 import 'package:flutter/material.dart';
 
-class GraphRow extends StatelessWidget {
+class Graphs extends StatelessWidget {
   final double height;
-  const GraphRow({Key? key, required this.height}) : super(key: key);
+  const Graphs({Key? key, required this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

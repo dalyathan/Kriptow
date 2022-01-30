@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                         left: size.width *
                             horizontalPaddingRatio, /*top: size.height * verticalPaddingRatio*/
                       ),
-                      child: GraphRow(
+                      child: Graphs(
                         height: size.height * 0.25,
                       )),
                   Padding(
