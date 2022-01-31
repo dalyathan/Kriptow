@@ -55,7 +55,6 @@ class _SlideBarState extends State<SlideBar> {
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               tile("All Assets", 0),
               tile("Tradeables", 1),

@@ -1,4 +1,3 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/supertype.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,7 +16,8 @@ class LivePriceTab extends StatelessWidget {
       required this.name,
       required this.shortName,
       required this.amountTransacted,
-      required this.percentChange})
+      required this.percentChange,
+      this.trendIcon})
       : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class LivePriceTab extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: height * 0.5,
+              height: trendIcon == null ? height * 0.5 : height * 0.325,
               child: FittedBox(
                 fit: BoxFit.fitHeight,
                 child: Text(

@@ -1,5 +1,8 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin.dart';
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/etherum.dart';
+import '/widgets/icons/binance_coin.dart';
+import '/widgets/icons/decreasing_trend.dart';
+import '/widgets/icons/etherum.dart';
+import '/widgets/icons/increasing_trend.dart';
+import '/widgets/icons/rotated_bitcoin.dart';
 
 import '/widgets/containers/common/live_prices/live_price_tab.dart';
 import '/widgets/icons/cardano.dart';
@@ -7,8 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LivePrices extends StatelessWidget {
+  final bool withIcon;
   late Size size;
-  LivePrices({Key? key}) : super(key: key);
+  LivePrices({Key? key, this.withIcon = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +37,24 @@ class LivePrices extends StatelessWidget {
         ),
         LivePriceTab(
           height: rowheight,
+          amountTransacted: '39,518.09',
+          icon: RotatedBitcoinIcon.withHeight(rowheight),
+          name: 'Bitcoin',
+          percentChange: '+3.81',
+          shortName: 'BTC',
+          trendIcon:
+              withIcon ? IncreasingTrendIcon(height: rowheight * 0.8) : null,
+        ),
+        space,
+        LivePriceTab(
+          height: rowheight,
           amountTransacted: '412.35',
           icon: BinanceCoinIcon.withHeight(rowheight),
           name: 'Binance Coin',
           percentChange: '+3.59',
           shortName: 'BNB',
+          trendIcon:
+              withIcon ? IncreasingTrendIcon(height: rowheight * 0.8) : null,
         ),
         space,
         LivePriceTab(
@@ -47,6 +64,8 @@ class LivePrices extends StatelessWidget {
           name: 'Cardano',
           percentChange: '-1.66',
           shortName: 'ADA',
+          trendIcon:
+              withIcon ? DecreasingTrendIcon(height: rowheight * 0.8) : null,
         ),
         space,
         LivePriceTab(
@@ -64,6 +83,8 @@ class LivePrices extends StatelessWidget {
           name: 'Etherum',
           percentChange: '-1.77',
           shortName: 'ADA',
+          trendIcon:
+              withIcon ? DecreasingTrendIcon(height: rowheight * 0.8) : null,
         ),
       ],
     );
