@@ -1,4 +1,4 @@
-import '/widgets/containers/home/live_prices/live_prices.dart';
+import '/widgets/containers/common/live_prices/live_prices.dart';
 
 import '/widgets/containers/home/portfolio/graph_row.dart';
 

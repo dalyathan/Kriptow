@@ -7,12 +7,14 @@ import 'package:flutter/material.dart';
 
 class MarketHeader extends StatelessWidget {
   final double height;
-  const MarketHeader({Key? key, required this.height}) : super(key: key);
+  final double horizontalPaddingRatio;
+  const MarketHeader(
+      {Key? key, required this.height, required this.horizontalPaddingRatio})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double horizontaPaddingRatio = 0.1;
     double rowheight = height * 0.2;
     return Stack(
       children: [
@@ -24,10 +26,10 @@ class MarketHeader extends StatelessWidget {
           top: height * 0.6,
           child: Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: size.width * horizontaPaddingRatio),
+                horizontal: size.width * horizontalPaddingRatio),
             child: SizedBox(
               height: rowheight,
-              width: size.width * (1 - 2 * horizontaPaddingRatio),
+              width: size.width * (1 - 2 * horizontalPaddingRatio),
               child: Row(
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.min,

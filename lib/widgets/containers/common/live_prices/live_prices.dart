@@ -1,7 +1,7 @@
 import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/binance_coin.dart';
 import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/etherum.dart';
 
-import '/widgets/containers/home/live_prices/live_price_tab.dart';
+import '/widgets/containers/common/live_prices/live_price_tab.dart';
 import '/widgets/icons/cardano.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

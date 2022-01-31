@@ -1,10 +1,15 @@
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/painters/search.dart';
 import 'package:flutter/material.dart';
 
 class SearchIcon extends StatelessWidget {
-  const SearchIcon({Key? key}) : super(key: key);
+  final double size;
+  const SearchIcon({Key? key, required this.size}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return CustomPaint(
+      painter: SearchIconPainter(),
+      size: Size.square(size),
+    );
   }
 }

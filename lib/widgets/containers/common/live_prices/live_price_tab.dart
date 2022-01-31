@@ -9,7 +9,8 @@ class LivePriceTab extends StatelessWidget {
   final String shortName;
   final String amountTransacted;
   final String percentChange;
-  const LivePriceTab(
+  Widget? trendIcon;
+  LivePriceTab(
       {Key? key,
       required this.height,
       required this.icon,
@@ -57,7 +58,11 @@ class LivePriceTab extends StatelessWidget {
           ],
         ),
         const Spacer(
-          flex: 17,
+          flex: 8,
+        ),
+        trendIcon ?? Container(),
+        const Spacer(
+          flex: 9,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
