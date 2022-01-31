@@ -25,33 +25,36 @@ class ActiveIconContainer extends StatelessWidget {
         color: activeBackground,
         borderRadius: BorderRadius.circular(height * 0.5),
       ),
-      child: Row(
-        children: [
-          const Spacer(
-            flex: 3,
-          ),
-          Theme(
-              data: ThemeData(
-                  backgroundColor: activeBackground,
-                  accentColor: activeForeground),
-              child: icon),
-          const Spacer(
-            flex: 2,
-          ),
-          SizedBox(
-            width: width * 0.4,
-            child: FittedBox(
-              fit: BoxFit.fitWidth,
-              child: Text(
-                title,
-                style: GoogleFonts.sora(color: activeForeground),
+      child: Center(
+        child: Row(
+          children: [
+            const Spacer(
+              flex: 3,
+            ),
+            Theme(
+                data: ThemeData(
+                    backgroundColor: activeBackground,
+                    accentColor: activeForeground),
+                child: icon),
+            const Spacer(
+              flex: 2,
+            ),
+            SizedBox(
+              width: width * 0.4,
+              height: icon.height,
+              child: FittedBox(
+                fit: BoxFit.fill,
+                child: Text(
+                  title,
+                  style: GoogleFonts.sora(color: activeForeground),
+                ),
               ),
             ),
-          ),
-          const Spacer(
-            flex: 3,
-          ),
-        ],
+            const Spacer(
+              flex: 3,
+            ),
+          ],
+        ),
       ),
     );
   }

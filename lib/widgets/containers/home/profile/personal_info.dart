@@ -1,4 +1,4 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/profile/profile_app_bar.dart';
+import '/widgets/containers/home/profile/profile_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'balance.dart';

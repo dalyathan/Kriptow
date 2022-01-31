@@ -1,8 +1,8 @@
-import '/widgets/containers/portfolio/graph_detail.dart';
+import '/widgets/containers/home/portfolio/graph_detail.dart';
 import '/widgets/icons/bitcoin.dart';
 import '/widgets/icons/etherum.dart';
 
-import '/widgets/containers/portfolio/graph.dart';
+import '/widgets/containers/home/portfolio/graph.dart';
 import 'package:flutter/material.dart';
 
 class Graphs extends StatelessWidget {

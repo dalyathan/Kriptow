@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'name_and_photo.dart';
-import 'new_notification.dart';
+import '../../common/new_notification.dart';
 
 class ProfileAppBar extends StatelessWidget {
   final double height;

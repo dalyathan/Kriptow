@@ -87,7 +87,7 @@ class GraphDetail extends StatelessWidget {
               ),
               Container(
                 height: height * 0.125,
-                width: width * 0.3,
+                width: width * 0.25,
                 decoration: const ShapeDecoration(
                   color: Color.fromRGBO(57, 63, 83, 1),
                   shape: StadiumBorder(),

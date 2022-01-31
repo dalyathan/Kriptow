@@ -15,20 +15,19 @@ class PercentIncrease extends StatelessWidget {
       height: height,
       //color: Colors.green,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
               //color: Colors.blue,
-              height: height * 0.75,
+              height: height * 0.35,
               child: Align(
-                  //alignment: Alignment(0, -height * 0.0083),
-                  child: IncreasingIcon(height: height * 0.75))),
-          // SizedBox(
-          //   width: height * 0.2,
-          // ),
+                  alignment: Alignment(0, -height * 0.025),
+                  child: IncreasingIcon(height: height * 0.25))),
+          SizedBox(
+            width: height * 0.2,
+          ),
           Container(
             //color: Colors.orange,
-            height: height * 0.55,
+            height: height * 0.5,
             child: FittedBox(
               fit: BoxFit.fitWidth,
               alignment: Alignment.bottomCenter,

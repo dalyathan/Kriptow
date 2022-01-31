@@ -1,4 +1,4 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/containers/portfolio/graph_detail.dart';
+import '/widgets/containers/home/portfolio/graph_detail.dart';
 
 import '/clippers/graph_clipper.dart';
 import '/widgets/containers/common/blue_shade.dart';
