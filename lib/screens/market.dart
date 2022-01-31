@@ -1,3 +1,4 @@
+import '/widgets/containers/market/header.dart';
 import 'package:flutter/material.dart';
 
 class MarketPage extends StatelessWidget {
@@ -5,6 +6,10 @@ class MarketPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Size size = MediaQuery.of(context).size;
+    double headheightRatio = 0.2;
+    return Column(
+      children: [MarketHeader(height: size.height * headheightRatio)],
+    );
   }
 }

@@ -1,10 +1,13 @@
 import 'package:drrrible_nuha_maulana_ahsan_crypto_app/screens/market.dart';
 
-import '/widgets/containers/common/custom_bottom_navigation_bar.dart';
+import 'screens/settings.dart';
+import 'widgets/containers/common/custom_bottom_navigation_bar.dart';
 
 import 'screens/home.dart';
 
 import 'package:flutter/material.dart';
+
+import 'screens/rate.dart';
 
 class Index extends StatefulWidget {
   const Index({Key? key}) : super(key: key);
@@ -19,9 +22,8 @@ class _IndexState extends State<Index> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    pages = const [HomePage(), MarketPage()];
+    pages = const [HomePage(), RatePage(), MarketPage(), SettingsPage()];
   }
 
   @override

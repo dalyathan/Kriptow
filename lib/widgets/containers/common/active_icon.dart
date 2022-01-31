@@ -15,12 +15,11 @@ class ActiveIconContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     const Color activeBackground = Color.fromRGBO(186, 232, 232, 1);
     const Color activeForeground = Color.fromRGBO(39, 35, 67, 1);
-    const double aspectRatio = 2.5;
+    //const double aspectRatio = 2.5;
     double height = icon.height * 2;
-    double width = height * aspectRatio;
+    //double width = height * aspectRatio;
     return Container(
       height: height,
-      width: width,
       decoration: BoxDecoration(
         color: activeBackground,
         borderRadius: BorderRadius.circular(height * 0.5),
@@ -39,16 +38,9 @@ class ActiveIconContainer extends StatelessWidget {
             const Spacer(
               flex: 2,
             ),
-            SizedBox(
-              width: width * 0.4,
-              height: icon.height,
-              child: FittedBox(
-                fit: BoxFit.fill,
-                child: Text(
-                  title,
-                  style: GoogleFonts.sora(color: activeForeground),
-                ),
-              ),
+            Text(
+              title,
+              style: GoogleFonts.sora(color: activeForeground, fontSize: 15),
             ),
             const Spacer(
               flex: 3,
