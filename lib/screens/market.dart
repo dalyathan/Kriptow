@@ -1,6 +1,6 @@
 import '/widgets/containers/common/live_prices/live_prices.dart';
 
-import '/widgets/containers/market/slide_bar.dart';
+import '../widgets/containers/common/slide_bar.dart';
 
 import '/widgets/containers/market/search_bar.dart';
 
@@ -35,12 +35,13 @@ class MarketPage extends StatelessWidget {
         SlideBar(
           height: size.height * slideBarHeightRatio,
           horizontalPaddingRatio: horizontalPaddingRatio,
+          tileNames: const ['All Assets', 'Tradeables', 'Gainers', 'Losers'],
         ),
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: size.width * horizontalPaddingRatio),
           child: LivePrices(
-            withIcon: true,
+            withTrendIcon: true,
           ),
         )
       ],

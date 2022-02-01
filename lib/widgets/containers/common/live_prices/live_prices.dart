@@ -4,7 +4,6 @@ import 'package:drrrible_nuha_maulana_ahsan_crypto_app/widgets/icons/tether.dart
 
 import '/widgets/icons/binance_coin.dart';
 import '/widgets/icons/decreasing_trend.dart';
-import '/widgets/icons/etherum.dart';
 import '/widgets/icons/increasing_trend.dart';
 import '/widgets/icons/rotated_bitcoin.dart';
 
@@ -14,9 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LivePrices extends StatelessWidget {
-  final bool withIcon;
+  final bool withTrendIcon;
   late Size size;
-  LivePrices({Key? key, this.withIcon = false}) : super(key: key);
+  LivePrices({Key? key, this.withTrendIcon = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +46,9 @@ class LivePrices extends StatelessWidget {
           name: 'Bitcoin',
           percentChange: '+3.81',
           shortName: 'BTC',
-          trendIcon:
-              withIcon ? IncreasingTrendIcon(height: trendIconheight) : null,
+          trendIcon: withTrendIcon
+              ? IncreasingTrendIcon(height: trendIconheight)
+              : null,
         ),
         space,
         LivePriceTab(
@@ -58,8 +58,9 @@ class LivePrices extends StatelessWidget {
           name: 'Binance Coin',
           percentChange: '+3.59',
           shortName: 'BNB',
-          trendIcon:
-              withIcon ? IncreasingTrendIcon(height: trendIconheight) : null,
+          trendIcon: withTrendIcon
+              ? IncreasingTrendIcon(height: trendIconheight)
+              : null,
         ),
         space,
         LivePriceTab(
@@ -69,8 +70,9 @@ class LivePrices extends StatelessWidget {
           name: 'Cardano',
           percentChange: '-1.66',
           shortName: 'ADA',
-          trendIcon:
-              withIcon ? DecreasingTrendIcon(height: trendIconheight) : null,
+          trendIcon: withTrendIcon
+              ? DecreasingTrendIcon(height: trendIconheight)
+              : null,
         ),
         space,
         LivePriceTab(
@@ -80,8 +82,9 @@ class LivePrices extends StatelessWidget {
           name: 'Etherum',
           percentChange: '-1.77',
           shortName: 'ADA',
-          trendIcon:
-              withIcon ? DecreasingTrendIcon(height: trendIconheight) : null,
+          trendIcon: withTrendIcon
+              ? DecreasingTrendIcon(height: trendIconheight)
+              : null,
         ),
         space,
         LivePriceTab(
@@ -91,8 +94,9 @@ class LivePrices extends StatelessWidget {
           name: 'Tether',
           percentChange: '+0.18',
           shortName: 'USDT',
-          trendIcon:
-              withIcon ? IncreasingTrendIcon(height: trendIconheight) : null,
+          trendIcon: withTrendIcon
+              ? IncreasingTrendIcon(height: trendIconheight)
+              : null,
         ),
         space,
         LivePriceTab(
@@ -102,8 +106,9 @@ class LivePrices extends StatelessWidget {
           name: 'Dogecoin',
           percentChange: '-2.04',
           shortName: 'USDT',
-          trendIcon:
-              withIcon ? DecreasingTrendIcon(height: trendIconheight) : null,
+          trendIcon: withTrendIcon
+              ? DecreasingTrendIcon(height: trendIconheight)
+              : null,
         )
       ],
     );

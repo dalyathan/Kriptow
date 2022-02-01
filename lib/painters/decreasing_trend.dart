@@ -1,4 +1,4 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/util/data.dart';
+import 'package:drrrible_nuha_maulana_ahsan_crypto_app/util/data/trend_icon.dart';
 import 'dart:ui' as ui;
 import 'dart:math';
 import 'package:flutter/material.dart';
@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 class DecreasingTrendIconPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    List<Offset> offsets = DataUtil(size).decreasing();
-    Offset center = Offset(size.width / 2, size.height / 2);
+    List<Offset> offsets = TrendIconOffsetUtil(size).decreasing();
     Paint brush = Paint()
       ..strokeWidth = 2.5
       ..style = PaintingStyle.stroke

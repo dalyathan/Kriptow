@@ -4,8 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 class SlideBar extends StatefulWidget {
   final double height;
   final double horizontalPaddingRatio;
+  final List<String> tileNames;
   const SlideBar(
-      {Key? key, required this.height, required this.horizontalPaddingRatio})
+      {Key? key,
+      required this.height,
+      required this.horizontalPaddingRatio,
+      required this.tileNames})
       : super(key: key);
 
   @override
@@ -35,7 +39,8 @@ class _SlideBarState extends State<SlideBar> {
     Size size = MediaQuery.of(context).size;
     double rowWidth =
         size.width * (1 - 2 * widget.horizontalPaddingRatio) - widget.height;
-    double highlightWidthRatio = 0.25;
+    //double highlightWidthRatio = 0.25;
+    double highlightWidthRatio = 1 / widget.tileNames.length;
     headWidth = rowWidth * highlightWidthRatio;
     return SizedBox(
       height: widget.height,
@@ -44,7 +49,7 @@ class _SlideBarState extends State<SlideBar> {
         children: [
           AnimatedPositioned(
             duration: const Duration(milliseconds: 350),
-            left: highlightedHeadIndex * rowWidth * 0.25,
+            left: highlightedHeadIndex * headWidth,
             child: Container(
               width: headWidth,
               height: widget.height,
@@ -54,14 +59,17 @@ class _SlideBarState extends State<SlideBar> {
             ),
           ),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              tile("All Assets", 0),
-              tile("Tradeables", 1),
-              tile("Gainers", 2),
-              tile("Losers", 3)
-            ],
-          )
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: //[
+                  // tile("All Assets", 0),
+                  // tile("Tradeables", 1),
+                  // tile("Gainers", 2),
+                  // tile("Losers", 3)
+                  widget.tileNames
+                      .map((e) => tile(e, widget.tileNames.indexOf(e)))
+                      .toList()
+              //],
+              )
         ],
       ),
     );

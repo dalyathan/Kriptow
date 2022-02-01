@@ -35,6 +35,8 @@ class LivePriceTab extends StatelessWidget {
                   abbreviation: shortName,
                   cryptoName: name,
                   cytpoIcon: icon,
+                  amountTransacted: amountTransacted,
+                  percentChange: percentChange,
                 )),
       ),
       child: SizedBox(
@@ -52,17 +54,14 @@ class LivePriceTab extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(
-                    width: size.width * detailWidthRatio,
-                    child: LimitedBox(
-                      maxHeight:
-                          trendIcon == null ? height * 0.5 : height * 0.325,
-                      maxWidth: size.width * detailWidthRatio,
-                      child: Text(
-                        name,
-                        style: GoogleFonts.sora(
-                            color: const Color.fromRGBO(87, 87, 87, 1)),
-                      ),
+                  LimitedBox(
+                    maxHeight:
+                        trendIcon == null ? height * 0.5 : height * 0.325,
+                    maxWidth: size.width * detailWidthRatio,
+                    child: Text(
+                      name,
+                      style: GoogleFonts.sora(
+                          color: const Color.fromRGBO(87, 87, 87, 1)),
                     ),
                   ),
                   SizedBox(
