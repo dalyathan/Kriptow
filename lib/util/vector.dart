@@ -37,8 +37,10 @@ class VectorUtil {
   }
 
   List<Offset> rotatePolygon(
-          List<Offset> dartianOffsets, double angleInRadians) =>
-      dartianOffsets.map((offset) => rotate(offset, angleInRadians)).toList();
+          List<Offset> dartianOffsets, double counterClockwiseInRadians) =>
+      dartianOffsets
+          .map((offset) => rotate(offset, counterClockwiseInRadians))
+          .toList();
 
   Offset toDartianCoordinate(Offset cartesianPoint) => Offset(
       cartesianPoint.dx + frame.width * 0.5,

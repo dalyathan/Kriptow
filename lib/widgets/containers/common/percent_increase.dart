@@ -6,7 +6,12 @@ import 'package:flutter/material.dart';
 class PercentIncrease extends StatelessWidget {
   final String percent;
   final double height;
-  const PercentIncrease({Key? key, required this.height, required this.percent})
+  Color color;
+  PercentIncrease(
+      {Key? key,
+      required this.height,
+      required this.percent,
+      this.color = Colors.white})
       : super(key: key);
 
   @override
@@ -21,7 +26,10 @@ class PercentIncrease extends StatelessWidget {
               height: height * 0.35,
               child: Align(
                   alignment: Alignment(0, -height * 0.025),
-                  child: IncreasingIcon(height: height * 0.25))),
+                  child: IncreasingIcon(
+                    height: height * 0.25,
+                    color: color,
+                  ))),
           SizedBox(
             width: height * 0.2,
           ),
@@ -31,8 +39,7 @@ class PercentIncrease extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.fitWidth,
               alignment: Alignment.bottomCenter,
-              child: Text(percent,
-                  style: GoogleFonts.spartan(color: Colors.white)),
+              child: Text(percent, style: GoogleFonts.spartan(color: color)),
             ),
           )
         ],

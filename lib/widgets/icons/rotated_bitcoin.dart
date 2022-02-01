@@ -11,18 +11,19 @@ class RotatedBitcoinIcon extends SuperTypeIcon {
   RotatedBitcoinIcon.withHeight(double height) {
     super.height = height;
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: height,
       height: height,
       decoration: const BoxDecoration(
-          color: Color.fromRGBO(247, 148, 57, 1), shape: BoxShape.circle),
+          color: Color.fromRGBO(247, 147, 26, 1), shape: BoxShape.circle),
       child: Transform.rotate(
-        angle: 1 * pi / 9,
+        angle: 1 * pi / 12,
         child: Center(
           child: CustomPaint(
-            size: Size.square(height * 0.8),
+            size: Size.square(height * 0.75),
             painter: BitcoinIconPainter(Colors.white),
           ),
         ),

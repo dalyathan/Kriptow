@@ -41,5 +41,6 @@ class CubicBezierCurveIconPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      this != oldDelegate;
 }

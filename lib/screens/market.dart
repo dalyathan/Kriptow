@@ -13,33 +13,29 @@ class MarketPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double headheightRatio = 0.2;
+    double headheightRatio = 0.15;
     double horizontalPaddingRatio = 0.05;
     double searchBarheightRatio = 0.05;
     double slideBarHeightRatio = 0.05;
     double rowSpaceRatio = 0.035;
+    SizedBox spacer = SizedBox(
+      height: size.height * rowSpaceRatio,
+    );
     return Column(
       children: [
         MarketHeader(
             height: size.height * headheightRatio,
             horizontalPaddingRatio: horizontalPaddingRatio),
-        SizedBox(
-          height: size.height * rowSpaceRatio,
-        ),
+        spacer,
         SearchBarContainer(
           horizontalPaddingRatio: horizontalPaddingRatio,
           height: size.height * searchBarheightRatio,
         ),
-        SizedBox(
-          height: size.height * rowSpaceRatio,
-        ),
+        spacer,
         SlideBar(
           height: size.height * slideBarHeightRatio,
           horizontalPaddingRatio: horizontalPaddingRatio,
         ),
-        // SizedBox(
-        //   height: size.height * rowSpaceRatio,
-        // ),
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: size.width * horizontalPaddingRatio),

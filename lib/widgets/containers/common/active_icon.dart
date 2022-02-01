@@ -20,6 +20,7 @@ class ActiveIconContainer extends StatelessWidget {
     //double width = height * aspectRatio;
     return Container(
       height: height,
+      width: height * 2.5,
       decoration: BoxDecoration(
         color: activeBackground,
         borderRadius: BorderRadius.circular(height * 0.5),

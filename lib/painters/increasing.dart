@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class IncreasingIconPainter extends CustomPainter {
+  final Color color;
+
+  IncreasingIconPainter(this.color);
   @override
   void paint(Canvas canvas, Size size) {
     Paint brush = Paint();
-    brush.color = Colors.white;
+    brush.color = color;
     brush.style = PaintingStyle.fill;
     brush.strokeWidth = 2.5;
 
@@ -18,16 +21,10 @@ class IncreasingIconPainter extends CustomPainter {
         Offset(size.width, size.height - size.width * bottomCuttedEdgeOfset);
 
     Path path = Path();
-    // path.moveTo(A.dx, A.dy);
-    // path.moveTo(B.dx, B.dy);
-    // path.moveTo(C.dx, C.dy);
-    // path.moveTo(D.dx, D.dy);
-    // path.moveTo(E.dx, E.dy);
-
     path.addPolygon([A, B, C, D, E], true);
     canvas.drawPath(path, brush);
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

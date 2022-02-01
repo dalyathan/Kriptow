@@ -12,7 +12,7 @@ class PersonalInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double horizontalPaddingRatio = 0.075;
-    double verticalPaddingRatio = 0.125;
+    double verticalPaddingRatio = 0.1;
     return Padding(
       padding: EdgeInsets.symmetric(
           vertical: height * verticalPaddingRatio,
@@ -21,6 +21,7 @@ class PersonalInfo extends StatelessWidget {
         // color: Colors.yellow,
         height: height * (1 - 2 * verticalPaddingRatio),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ProfileAppBar(
               height: height * 0.25,

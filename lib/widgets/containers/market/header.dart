@@ -44,7 +44,11 @@ class MarketHeader extends StatelessWidget {
                   const Spacer(
                     flex: 1,
                   ),
-                  PercentIncrease(height: rowheight * 0.95, percent: "4.20%"),
+                  PercentIncrease(
+                    height: rowheight * 0.95,
+                    percent: "4.20%",
+                    color: const Color.fromRGBO(186, 232, 232, 1),
+                  ),
                   const Spacer(
                     flex: 10,
                   ),

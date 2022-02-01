@@ -29,5 +29,6 @@ class IncreasingTrendIconPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      this != oldDelegate;
 }
