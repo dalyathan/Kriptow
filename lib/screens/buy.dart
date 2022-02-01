@@ -1,11 +1,9 @@
-import 'package:google_fonts/google_fonts.dart';
-
-import '/widgets/containers/buy/graph_backdrop.dart';
-
-import '../widgets/containers/common/slide_bar.dart';
-
+import '/widgets/containers/buy/button.dart';
 import '/widgets/containers/buy/total_price.dart';
-
+import '/widgets/containers/buy/week_days.dart';
+import '/widgets/containers/buy/graph_backdrop.dart';
+import '../widgets/containers/common/slide_bar.dart';
+import '../widgets/containers/buy/timely_price.dart';
 import '/widgets/containers/buy/app_bar.dart';
 import '/widgets/icons/supertype.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +37,7 @@ class _BuyCryptoState extends State<BuyCrypto> {
     double slideBarHeightRatio = 0.035;
     double graphBakcdropHeightRatio = 0.3;
     double hrWidthRatio = 0.825;
+    double elevatedButtonHeightRatio = 0.06;
 
     double effectiveWidth = size.width * (1 - 2 * rowHorizontalPaddingRatio);
 
@@ -57,7 +56,7 @@ class _BuyCryptoState extends State<BuyCrypto> {
               rowHorizontalPaddingRatio: rowHorizontalPaddingRatio,
             ),
             spacer,
-            TotalPriceContainer(
+            TimelyPrice(
               height: size.height * totalPriceHeightRatio,
               percentChange: widget.percentChange,
               amountTransacted: widget.amountTransacted,
@@ -70,43 +69,40 @@ class _BuyCryptoState extends State<BuyCrypto> {
               tileNames: const ['1H', '1D', '1W', '1M', '1Y', 'All'],
             ),
             spacer,
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: size.width * rowHorizontalPaddingRatio),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GraphBackdropContainer(
-                    height: size.height * graphBakcdropHeightRatio,
-                    priceRanges: const [
-                      '\$39,9K',
-                      '\$39,8K',
-                      '\$39,7K',
-                      '\$39,6K',
-                      '\$39,5K',
-                      '\$39,4K',
-                      '\$39,3K'
-                    ],
-                    width: effectiveWidth,
-                    hrWidthRatio: hrWidthRatio,
-                  ),
-                  spacer,
-                  SizedBox(
-                      width: effectiveWidth * hrWidthRatio,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-                              .map((e) => Text(
-                                    e,
-                                    style: GoogleFonts.sora(
-                                        color: const Color.fromRGBO(
-                                            223, 222, 227, 1),
-                                        fontWeight: FontWeight.w600),
-                                  ))
-                              .toList()))
-                ],
-              ),
-            )
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GraphBackdropContainer(
+                  height: size.height * graphBakcdropHeightRatio,
+                  priceRanges: const [
+                    '\$39,9K',
+                    '\$39,8K',
+                    '\$39,7K',
+                    '\$39,6K',
+                    '\$39,5K',
+                    '\$39,4K',
+                    '\$39,3K'
+                  ],
+                  width: effectiveWidth,
+                  hrWidthRatio: hrWidthRatio,
+                ),
+                spacer,
+                SizedBox(
+                    width: effectiveWidth * hrWidthRatio,
+                    child: const WeekDays())
+              ],
+            ),
+            spacer,
+            TotalPrice(
+              height: size.height * totalPriceHeightRatio,
+              width: effectiveWidth,
+            ),
+            spacer,
+            BuyButton(
+              height: size.height * elevatedButtonHeightRatio,
+              name: widget.cryptoName,
+              width: effectiveWidth,
+            ),
           ],
         ),
       ),

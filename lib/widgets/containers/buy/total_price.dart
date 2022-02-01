@@ -1,80 +1,55 @@
-import '/widgets/containers/common/percent_increase.dart';
-import '/widgets/icons/increasing_trend.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TotalPriceContainer extends StatelessWidget {
-  final String amountTransacted;
-  final String percentChange;
+class TotalPrice extends StatelessWidget {
   final double height;
   final double width;
-  const TotalPriceContainer(
-      {Key? key,
-      required this.amountTransacted,
-      required this.percentChange,
-      required this.height,
-      required this.width})
+  late Size size;
+  double heightRatio = 0.3;
+  TotalPrice({Key? key, required this.height, required this.width})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    double innerVerticalPaddingRation = 0.1;
-    double innerHorizontalPaddingRatio = 0.1;
-    double effectiveWidth = width * (1 - 2 * innerHorizontalPaddingRatio);
-    double effectiveHeight = height * (1 - 2 * innerVerticalPaddingRation);
-    const Color foregroundColor = Color.fromRGBO(39, 35, 67, 1);
-    const Color backgroundColor = Color.fromRGBO(186, 232, 232, 1);
-    double descriptionWidth = effectiveWidth * 0.4;
-    double descriptionHeight = descriptionWidth * 0.22;
-    double trendIconHeight = effectiveHeight * 0.7;
+    size = MediaQuery.of(context).size;
+    double borderRadiusRatio = 0.1;
     return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-          color: const Color.fromRGBO(248, 247, 255, 1),
-          borderRadius: BorderRadius.circular(height * 0.1)),
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: width * innerHorizontalPaddingRatio,
-            vertical: height * innerVerticalPaddingRation),
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+            color: const Color.fromRGBO(248, 247, 255, 1),
+            borderRadius: BorderRadius.circular(height * borderRadiusRatio)),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
-              children: [
-                SizedBox(
-                    height: descriptionHeight,
-                    width: descriptionWidth,
-                    child: FittedBox(
-                      fit: BoxFit.fill,
-                      child: Text(
-                        '\$$amountTransacted',
-                        style: GoogleFonts.sora(color: foregroundColor),
-                      ),
-                    )),
-                Container(
-                  height: descriptionHeight,
-                  width: descriptionWidth,
-                  decoration: BoxDecoration(
-                      color: backgroundColor,
-                      borderRadius:
-                          BorderRadius.circular(descriptionHeight * 0.5)),
-                  child: PercentIncrease(
-                    height: descriptionHeight * 1.3,
-                    percent: '$percentChange(+1.01%)',
-                    color: foregroundColor,
-                  ),
-                ),
-              ],
-            ),
-            const Spacer(),
-            IncreasingTrendIcon(
-              height: trendIconHeight,
-              color: foregroundColor,
-            )
+            priceColumn("24H High", "\$39,984.51"),
+            priceColumn("24H Low", "\$38,626.94"),
+            priceColumn("24H Vol", "\$4,213 M"),
           ],
+        ));
+  }
+
+  Column priceColumn(String timeZone, String price) {
+    const Color timeColor = Color.fromRGBO(223, 222, 227, 1);
+    const Color priceColor = Color.fromRGBO(39, 35, 67, 1);
+    double priceHeight = height * heightRatio;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: priceHeight * 0.8,
+          child: FittedBox(
+              fit: BoxFit.fitHeight,
+              child: Text(timeZone, style: GoogleFonts.sora(color: timeColor))),
         ),
-      ),
+        SizedBox(
+          height: priceHeight,
+          child: FittedBox(
+              fit: BoxFit.fitHeight,
+              child: Text(price, style: GoogleFonts.sora(color: priceColor))),
+        )
+      ],
     );
   }
 }

@@ -26,7 +26,6 @@ class _SlideBarState extends State<SlideBar> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     highlightedBackground = const Color.fromRGBO(39, 35, 67, 1);
     highlightedForeground = const Color.fromRGBO(175, 217, 219, 1);
@@ -39,7 +38,6 @@ class _SlideBarState extends State<SlideBar> {
     Size size = MediaQuery.of(context).size;
     double rowWidth =
         size.width * (1 - 2 * widget.horizontalPaddingRatio) - widget.height;
-    //double highlightWidthRatio = 0.25;
     double highlightWidthRatio = 1 / widget.tileNames.length;
     headWidth = rowWidth * highlightWidthRatio;
     return SizedBox(
@@ -60,16 +58,9 @@ class _SlideBarState extends State<SlideBar> {
           ),
           Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: //[
-                  // tile("All Assets", 0),
-                  // tile("Tradeables", 1),
-                  // tile("Gainers", 2),
-                  // tile("Losers", 3)
-                  widget.tileNames
-                      .map((e) => tile(e, widget.tileNames.indexOf(e)))
-                      .toList()
-              //],
-              )
+              children: widget.tileNames
+                  .map((e) => tile(e, widget.tileNames.indexOf(e)))
+                  .toList())
         ],
       ),
     );
