@@ -72,6 +72,9 @@ class _SearchBarContainerState extends State<SearchBarContainer> {
                 }),
                 child: TextFormField(
                   controller: stringController,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                  ),
                 ),
               )
             ],
