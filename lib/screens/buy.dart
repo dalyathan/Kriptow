@@ -1,3 +1,5 @@
+import '/widgets/containers/buy/stock_graph.dart';
+
 import '/widgets/containers/buy/button.dart';
 import '/widgets/containers/buy/total_price.dart';
 import '/widgets/containers/buy/week_days.dart';
@@ -37,12 +39,12 @@ class _BuyCryptoState extends State<BuyCrypto> {
     double slideBarHeightRatio = 0.035;
     double graphBakcdropHeightRatio = 0.3;
     double hrWidthRatio = 0.825;
-    double elevatedButtonHeightRatio = 0.06;
+    double elevatedButtonHeightRatio = 0.075;
 
     double effectiveWidth = size.width * (1 - 2 * rowHorizontalPaddingRatio);
 
     SizedBox spacer = SizedBox(
-      height: size.height * 0.035,
+      height: size.height * 0.025,
     );
     return Scaffold(
       body: SafeArea(
@@ -72,20 +74,26 @@ class _BuyCryptoState extends State<BuyCrypto> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GraphBackdropContainer(
-                  height: size.height * graphBakcdropHeightRatio,
-                  priceRanges: const [
-                    '\$39,9K',
-                    '\$39,8K',
-                    '\$39,7K',
-                    '\$39,6K',
-                    '\$39,5K',
-                    '\$39,4K',
-                    '\$39,3K'
-                  ],
-                  width: effectiveWidth,
-                  hrWidthRatio: hrWidthRatio,
-                ),
+                Stack(children: [
+                  GraphBackdropContainer(
+                    height: size.height * graphBakcdropHeightRatio,
+                    priceRanges: const [
+                      '\$39,9K',
+                      '\$39,8K',
+                      '\$39,7K',
+                      '\$39,6K',
+                      '\$39,5K',
+                      '\$39,4K',
+                      '\$39,3K'
+                    ],
+                    width: effectiveWidth,
+                    hrWidthRatio: hrWidthRatio,
+                  ),
+                  StockGraph(
+                    height: size.height * graphBakcdropHeightRatio,
+                    width: effectiveWidth * hrWidthRatio,
+                  )
+                ]),
                 spacer,
                 SizedBox(
                     width: effectiveWidth * hrWidthRatio,

@@ -1,4 +1,4 @@
-import 'package:drrrible_nuha_maulana_ahsan_crypto_app/screens/market.dart';
+import '/screens/market.dart';
 
 import 'screens/settings.dart';
 import 'widgets/containers/common/custom_bottom_navigation_bar.dart';

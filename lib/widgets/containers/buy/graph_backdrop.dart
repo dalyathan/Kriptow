@@ -19,7 +19,7 @@ class GraphBackdropContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: width,
       height: height,
       child: Column(
