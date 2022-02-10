@@ -19,11 +19,25 @@ class Index extends StatefulWidget {
 class _IndexState extends State<Index> {
   int currentPageIndex = 0;
   late List<Widget> pages;
+  final PageStorageBucket _bucket = PageStorageBucket();
 
   @override
   void initState() {
     super.initState();
-    pages = const [HomePage(), RatePage(), MarketPage(), SettingsPage()];
+    pages = const [
+      HomePage(
+        key: PageStorageKey<String>('HomePage'),
+      ),
+      RatePage(
+        key: PageStorageKey<String>('RatePage'),
+      ),
+      MarketPage(
+        key: PageStorageKey<String>('MarketPage'),
+      ),
+      SettingsPage(
+        key: PageStorageKey<String>('SettingsPage'),
+      )
+    ];
   }
 
   @override
@@ -32,7 +46,7 @@ class _IndexState extends State<Index> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: pages[currentPageIndex],
+          child: PageStorage(bucket: _bucket, child: pages[currentPageIndex]),
         ),
       ),
       bottomNavigationBar: CustomBottomNavigationBar(

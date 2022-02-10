@@ -30,14 +30,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-            icon: NotActiveIconContainer(
-              icon: homeIcon,
-            ),
-            activeIcon: ActiveIconContainer(
-              icon: homeIcon,
-              title: 'Home',
-            ),
-            title: Container()),
+          icon: NotActiveIconContainer(
+            icon: homeIcon,
+          ),
+          activeIcon: ActiveIconContainer(
+            icon: homeIcon,
+            title: 'Home',
+          ),
+          label: '',
+        ),
         BottomNavigationBarItem(
           icon: NotActiveIconContainer(
             icon: exchangeIcon,
@@ -46,7 +47,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: exchangeIcon,
             title: 'Rate',
           ),
-          title: Container(),
+          label: '',
         ),
         BottomNavigationBarItem(
           icon: NotActiveIconContainer(
@@ -56,7 +57,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: marketIcon,
             title: 'Market',
           ),
-          title: Container(),
+          label: '',
         ),
         BottomNavigationBarItem(
           icon: NotActiveIconContainer(
@@ -66,7 +67,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: settingsIcon,
             title: 'Settings',
           ),
-          title: Container(),
+          label: '',
         )
       ],
       currentIndex: selectedIndex,

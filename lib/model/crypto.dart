@@ -7,12 +7,6 @@ class CryptoStockData {
   final String amountTransacted;
   final String percentChange;
 
-  // amountTransacted: '0.35',
-  //         icon: DogeCoinIcon.withHeight(rowheight),
-  //         name: 'Dogecoin',
-  //         percentChange: '-2.04',
-  //         shortName: 'USDT',
-
   CryptoStockData(
       {required this.icon,
       required this.name,

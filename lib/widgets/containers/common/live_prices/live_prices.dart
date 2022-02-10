@@ -14,12 +14,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LivePrices extends StatelessWidget {
   final bool withTrendIcon;
-  late Size size;
-  LivePrices({Key? key, this.withTrendIcon = false}) : super(key: key);
+  const LivePrices({Key? key, this.withTrendIcon = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     double verticalPaddingRatio = 0.035;
     double rowheight = size.width * 0.15;
     double trendIconheight = rowheight * 0.7;
@@ -81,7 +80,7 @@ class LivePrices extends StatelessWidget {
           icon: EtherumWithBackground.withHeight(rowheight),
           name: 'Etherum',
           percentChange: '-1.77',
-          shortName: 'ADA',
+          shortName: 'ETH',
           trendIcon: withTrendIcon
               ? DecreasingTrendIcon(height: trendIconheight)
               : null,
@@ -105,7 +104,7 @@ class LivePrices extends StatelessWidget {
           icon: DogeCoinIcon.withHeight(rowheight),
           name: 'Dogecoin',
           percentChange: '-2.04',
-          shortName: 'USDT',
+          shortName: 'DOGE',
           trendIcon: withTrendIcon
               ? DecreasingTrendIcon(height: trendIconheight)
               : null,
